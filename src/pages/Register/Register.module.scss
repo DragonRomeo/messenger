@@ -1,0 +1,82 @@
+@use '../../assets/styles/variables.scss' as *;
+
+.form_container {
+  height: 100vh;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form_wrapper {
+  background-color: $color-base-dark;
+  padding: 20px 60px;
+  border-radius: $main-border-radius;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  p {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+}
+
+.logo {
+  color: $highlight-main-color;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.title {
+  color: $highlight-main-color;
+  font-size: 16px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  input {
+    padding: 15px;
+    font-family: inherit;
+    font-size: 16px;
+    color: inherit;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid $border-light-color;
+    width: 100%;
+    max-width: 250px;
+  }
+
+  button {
+    background-color: $highlight-main-color;
+    font: inherit;
+    font-weight: bold;
+    color: inherit;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.5s;
+  }
+
+  button:hover {
+    background-color: $highlight-hover-color;
+  }
+
+  label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: color 0.5s;
+  }
+  label:hover {
+    color: $highlight-hover-color;
+  }
+}
