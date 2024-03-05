@@ -1,0 +1,18 @@
+@use '../../assets//styles/variables.scss' as *;
+
+.home {
+  background-color: $darkreader-neutral-background;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .container {
+    // border: 1px solid white;
+    border-radius: 10px;
+    width: 65%;
+    height: 80%;
+    display: flex;
+    overflow: hidden;
+  }
+}

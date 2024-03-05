@@ -1,0 +1,7 @@
+@use '../../assets/styles/variables.scss' as *;
+
+.sidebar {
+  flex: 1;
+//   border-right: 1px solid white;
+  background-color: $darkreader-bg2;
+}
