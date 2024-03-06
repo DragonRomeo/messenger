@@ -1,0 +1,40 @@
+@use '/src/assets/styles/variables.scss' as *;
+
+.input {
+  height: 60px;
+  background-color: $darkreader-neutral-text;
+  color: black;
+  padding: 10px;
+  display: flex;
+
+  input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 18px;
+    color: black;
+  }
+}
+
+.send {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.send_button {
+  border: 1px solid transparent;
+  border-radius: 5px;
+  padding: 10px 15px;
+  color: white;
+  background-color: $darkreader-neutral-background;
+  font: inherit;
+  transition: background-color $main-transition-time, color $main-transition-time;
+  
+
+  &:hover {
+    background-color: $highlight-hover-color;
+    color: black;
+  }
+}

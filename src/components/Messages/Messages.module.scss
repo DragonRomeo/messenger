@@ -1,4 +1,6 @@
 @use '/src/assets/styles/variables.scss' as *;
 
 .messages {
+  padding: 10px;
+  height: calc(100% - 130px);
 }
