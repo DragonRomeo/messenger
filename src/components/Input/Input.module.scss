@@ -30,11 +30,10 @@
   color: white;
   background-color: $darkreader-neutral-background;
   font: inherit;
-  transition: background-color $main-transition-time, color $main-transition-time;
-  
+  transition: background-color $main-transition-time,
+    color $main-transition-time;
 
   &:hover {
     background-color: $highlight-hover-color;
-    color: black;
   }
 }
