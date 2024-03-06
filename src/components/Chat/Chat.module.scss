@@ -1,3 +1,15 @@
+@use '/src/assets/styles/variables.scss' as *;
+
 .chat {
   flex: 2;
+}
+
+.chat_info {
+  height: 50px;
+  background-color: $color-base-dark;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+  color: $darkreader-neutral-text;
 }
