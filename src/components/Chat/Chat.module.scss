@@ -6,10 +6,10 @@
 
 .chat_info {
   height: 50px;
-  background-color: $color-base-dark;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 10px;
+  padding: 30px 20px;
   color: $darkreader-neutral-text;
+  border-bottom: 1px solid $grey;
 }
