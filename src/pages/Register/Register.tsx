@@ -2,12 +2,17 @@ import style from './Register.module.scss';
 import image from '../../assets/icons/image_icon.png';
 
 export const Register = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(e.target[0]);
+  };
+
   return (
     <div className={style.form_container}>
       <div className={style.form_wrapper}>
         <span className={style.logo}>Relex messenger</span>
         <span className={style.title}>Register</span>
-        <form className={style.form} action=''>
+        <form onSubmit={handleSubmit} className={style.form} action=''>
           <input type='text' placeholder='display name' />
           <input type='email' placeholder='email' />
           <input type='password' placeholder='password' />
