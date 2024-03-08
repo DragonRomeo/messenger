@@ -58,7 +58,7 @@ export const Register = () => {
             await setDoc(doc(db, 'userChats', res.user.uid), {});
 
             // Navigation should only happen after all operations are complete
-            //TODO: return after add navigate
+            //TODO: uncomment this after add navigate
             // navigate('/');
           } catch (firestoreError) {
             console.error('Firestore error:', firestoreError);
