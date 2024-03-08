@@ -17,36 +17,57 @@ export const Register = () => {
     const password = (e.target[2] as HTMLInputElement | null)?.value;
     const file = (e.target[3] as HTMLInputElement | null)?.files![0];
 
-    try {
-      //Create user
-      const res = await createUserWithEmailAndPassword(auth, email, password);
+    if (!displayName || !email || !password || !file) {
+      alert('One of field are empty');
+      return;
+    }
 
+    try {
+      // Create the user account
+      const res = await createUserWithEmailAndPassword(auth, email, password);
       const storageRef = ref(storage, displayName);
 
+      // Upload the file
       const uploadTask = uploadBytesResumable(storageRef, file);
 
-      //Register
       uploadTask.on(
-        (error) => {
+        'state_changed',
+        null,
+        (uploadError) => {
+          console.error('Upload error:', uploadError);
           setError(true);
         },
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+        async () => {
+          try {
+            const downloadURL = await getDownloadURL(storageRef);
+
+            // Update user profile and set user data
             await updateProfile(res.user, {
               displayName,
               photoURL: downloadURL,
             });
-            console.log('im here');
             await setDoc(doc(db, 'users', res.user.uid), {
               uid: res.user.uid,
               displayName,
               email,
               photoURL: downloadURL,
             });
-          });
+            console.log('The data has been sent successfully');
+
+            // Create empty user chats on Firestore
+            await setDoc(doc(db, 'userChats', res.user.uid), {});
+
+            // Navigation should only happen after all operations are complete
+            //TODO: return after add navigate
+            // navigate('/');
+          } catch (firestoreError) {
+            console.error('Firestore error:', firestoreError);
+            setError(true);
+          }
         }
       );
-    } catch (error) {
+    } catch (authError) {
+      console.error('Authentication error:', authError);
       setError(true);
     }
   };
