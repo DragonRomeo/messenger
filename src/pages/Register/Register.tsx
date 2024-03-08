@@ -5,9 +5,11 @@ import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth, storage, db } from '../../firebase';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { doc, setDoc } from 'firebase/firestore';
+import { useNavigate } from 'react-router-dom';
 
 export const Register = () => {
   const [error, setError] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     if (!(e.target instanceof HTMLFormElement)) return;
@@ -58,8 +60,7 @@ export const Register = () => {
             await setDoc(doc(db, 'userChats', res.user.uid), {});
 
             // Navigation should only happen after all operations are complete
-            //TODO: uncomment this after add navigate
-            // navigate('/');
+            navigate('/');
           } catch (firestoreError) {
             console.error('Firestore error:', firestoreError);
             setError(true);
