@@ -1,19 +1,19 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getFirestore } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyBmLqiYazzkmqUIO8mL2OS0L2DLhLDmCKo',
-  authDomain: 'messenger-75277.firebaseapp.com',
-  projectId: 'messenger-75277',
-  storageBucket: 'messenger-75277.appspot.com',
-  messagingSenderId: '1088023079472',
-  appId: '1:1088023079472:web:20180f2b27246572189bf5',
+  apiKey: 'AIzaSyDb0i0q7oloi4UF8voEaBBNBC8Kj7ggG14',
+  authDomain: 'messegner2.firebaseapp.com',
+  projectId: 'messegner2',
+  storageBucket: 'messegner2.appspot.com',
+  messagingSenderId: '635125594512',
+  appId: '1:635125594512:web:5a0c2a8f6d04542c721b15',
+  measurementId: 'G-Y0R5S3W86J',
 };
 
-// Initialize Firebase
 export const app = initializeApp(firebaseConfig);
-export const auth = getAuth()
+export const auth = getAuth();
+export const storage = getStorage();
+export const db = getFirestore();
