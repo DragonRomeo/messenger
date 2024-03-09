@@ -1,6 +1,6 @@
+import style from '../Register/Register.module.scss';
 import { useState } from 'react';
 import { auth } from '../../firebase';
-import style from '../Register/Register.module.scss';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -31,7 +31,7 @@ export const Login = () => {
     <div className={style.form_container}>
       <div className={style.form_wrapper}>
         <span className={style.logo}>Relex messenger</span>
-        <span className={style.title}>Register</span>
+        <span className={style.title}>Sign in</span>
         <form onSubmit={handleSubmit} className={style.form} action=''>
           <input type='email' placeholder='email' />
           <input type='password' placeholder='password' />

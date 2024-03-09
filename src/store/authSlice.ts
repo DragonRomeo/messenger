@@ -3,11 +3,12 @@ import { createSlice } from '@reduxjs/toolkit';
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
-    authsData: [],
+    authData: [],
   },
   reducers: {
     addAuthData(state, action) {
-      state = action.payload;
+      state.authData = action.payload;
+      console.log(state.authData);
     },
   },
 });
