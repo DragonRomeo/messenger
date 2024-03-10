@@ -1,5 +1,5 @@
-import { Input } from '../Input/Input';
-import { Messages } from '../Messages/Messages';
+import { Input } from './components/Input/Input';
+import { Messages } from './components/Messages/Messages';
 import style from './Chat.module.scss';
 
 export const Chat = () => {
