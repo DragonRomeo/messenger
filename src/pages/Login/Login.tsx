@@ -3,12 +3,9 @@ import { useState } from 'react';
 import { auth } from '../../firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDataContext } from '../../context/context';
 
 export const Login = () => {
   const [error, setError] = useState(false);
-  const { currentUser } = useDataContext();
-  console.log(currentUser);
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
