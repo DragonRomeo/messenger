@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { auth } from '../../firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDataContext } from '../../components/context/context';
+import { useDataContext } from '../../context/context';
 
 export const Login = () => {
   const [error, setError] = useState(false);

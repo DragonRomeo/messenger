@@ -5,7 +5,7 @@ import { Register } from './pages/Register/Register';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { User, onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase';
-import { DataContext } from './components/context/context';
+import { DataContext } from './context/context';
 
 interface Props {
   children: JSX.Element;
