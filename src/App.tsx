@@ -5,6 +5,7 @@ import { Register } from './pages/Register/Register';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { User, onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase';
+import { DataContext } from './components/context/context';
 
 interface Props {
   children: JSX.Element;
@@ -12,7 +13,7 @@ interface Props {
 
 function App() {
   //maybe will need to add "{}" in useState for init state
-  const [currentUser, setCurrentUser] = useState<User | null>();
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
 
   const ProtectedRoute: FC<Props> = ({ children }) => {
     console.log('protected route');
@@ -36,20 +37,22 @@ function App() {
 
   return (
     <>
-      <Routes>
-        <Route path='/'>
-          <Route
-            index
-            element={
-              <ProtectedRoute>
-                <Home />
-              </ProtectedRoute>
-            }
-          ></Route>
-          <Route path='login' element={<Login />}></Route>
-          <Route path='register' element={<Register />}></Route>
-        </Route>
-      </Routes>
+      <DataContext.Provider value={{ currentUser }}>
+        <Routes>
+          <Route path='/'>
+            <Route
+              index
+              element={
+                <ProtectedRoute>
+                  <Home />
+                </ProtectedRoute>
+              }
+            ></Route>
+            <Route path='login' element={<Login />}></Route>
+            <Route path='register' element={<Register />}></Route>
+          </Route>
+        </Routes>
+      </DataContext.Provider>
     </>
   );
 }
