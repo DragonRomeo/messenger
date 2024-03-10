@@ -16,9 +16,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
 
   const ProtectedRoute: FC<Props> = ({ children }) => {
-    console.log('protected route');
     if (!currentUser) {
-      console.log('protected route condition');
       return <Navigate to='/login'></Navigate>;
     }
     return children;
