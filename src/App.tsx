@@ -6,6 +6,8 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { User, onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase';
 import { DataContext } from './context/context';
+import { useDispatch } from 'react-redux';
+import { addAuthData } from './store/authSlice';
 
 interface Props {
   children: JSX.Element;
@@ -14,6 +16,7 @@ interface Props {
 function App() {
   //maybe will need to add "{}" in useState for init state
   const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const dispatch = useDispatch();
 
   const ProtectedRoute: FC<Props> = ({ children }) => {
     if (!currentUser) {
@@ -25,6 +28,13 @@ function App() {
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
+      dispatch(
+        addAuthData({
+          displayName: user?.displayName,
+          photoURL: user?.photoURL,
+          uid: user?.uid,
+        })
+      );
       console.log(user);
     });
 

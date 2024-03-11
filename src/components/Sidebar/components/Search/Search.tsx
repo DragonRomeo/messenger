@@ -13,14 +13,16 @@ import {
   where,
 } from 'firebase/firestore';
 import { db } from '../../../../firebase';
-import { useDataContext } from '../../../../context/context';
+import { useSelector } from 'react-redux';
+import { IRootState } from '../../../../store';
 
 export const Search = () => {
   const [userName, setUserName] = useState('');
   const [user, setUser] = useState<DocumentData | null>(null);
   const [error, setError] = useState(false);
 
-  const { currentUser } = useDataContext();
+  const authData = useSelector((state: IRootState) => state.auth.authData);
+  console.log(authData);
 
   const handleSearch = async () => {
     const q = query(
@@ -44,11 +46,11 @@ export const Search = () => {
 
   const handleSelect = async () => {
     //check whether the group(chats in firestore) exists, if not create
-    if (currentUser && user) {
+    if (authData && user) {
       const combinedId =
-        currentUser.uid > user.uid
-          ? currentUser.uid + user.uid
-          : user.uid + currentUser.uid;
+        authData.uid > user.uid
+          ? authData.uid + user.uid
+          : user.uid + authData.uid;
       try {
         const res = await getDoc(doc(db, 'chats', combinedId));
 
@@ -57,7 +59,7 @@ export const Search = () => {
           await setDoc(doc(db, 'chats', combinedId), { messages: [] });
 
           //create user chats
-          await updateDoc(doc(db, 'userChats', currentUser.uid), {
+          await updateDoc(doc(db, 'userChats', authData.uid), {
             [combinedId + '.userInfo']: {
               uid: user.uid,
               displayName: user.displayName,
@@ -68,9 +70,9 @@ export const Search = () => {
 
           await updateDoc(doc(db, 'userChats', user.uid), {
             [combinedId + '.userInfo']: {
-              uid: currentUser.uid,
-              displayName: currentUser.displayName,
-              photoURL: currentUser.photoURL,
+              uid: authData.uid,
+              displayName: authData.displayName,
+              photoURL: authData.photoURL,
             },
             [combinedId + '.date']: serverTimestamp(),
           });
