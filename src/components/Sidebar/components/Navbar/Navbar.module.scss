@@ -19,8 +19,8 @@
 
     img {
       background-color: white;
-      height: 24px;
-      width: 24px;
+      height: 40px;
+      width: 40px;
       border-radius: 50%;
       object-fit: cover;
     }
@@ -35,13 +35,12 @@
       cursor: pointer;
       transition: background-color 0.5s;
       padding: 6px 3px;
-    }
 
-    button:hover {
-      background-color: $highlight-hover-color;
-      color: $darkreader-neutral-text;
-      border-color: $darkreader-neutral-text;
-      /*Вынести в глобал?*/
+      &:hover {
+        background-color: $highlight-hover-color;
+        color: $darkreader-neutral-text;
+        border-color: $darkreader-neutral-text;
+      }
     }
   }
 }

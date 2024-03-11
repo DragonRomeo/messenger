@@ -8,7 +8,6 @@ export const Navbar = () => {
 
   return (
     <div className={style.navbar}>
-      <span className={style.logo}>Relex Chat</span>
       <div className={style.user}>
         {currentUser?.photoURL && (
           <img src={currentUser?.photoURL} alt='avatar' />
