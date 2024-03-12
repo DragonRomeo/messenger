@@ -22,7 +22,6 @@ export const Search = () => {
   const [error, setError] = useState(false);
 
   const authData = useSelector((state: IRootState) => state.auth.authData);
-  console.log(authData);
 
   const handleSearch = async () => {
     const q = query(

@@ -26,7 +26,7 @@ export const Chats = () => {
     currentUser.uid && getChats();
   }, [currentUser.uid]);
 
-  console.log(chats && Object.entries(chats));
+  // console.log(chats && Object.entries(chats));
   return (
     <div className={style.chats}>
       {chats &&
@@ -35,7 +35,6 @@ export const Chats = () => {
             className={style2.user_chat}
             key={chat[0]}
             onClick={() => {
-              console.log('click');
               return dispatch(addChatData(chat[1].userInfo));
             }}
           >

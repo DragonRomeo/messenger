@@ -7,7 +7,6 @@ import { IRootState } from '../../store';
 export const Chat = () => {
   //Write a selector for sumID
   const user = useSelector((state: IRootState) => state.chat.user);
-  console.log(user);
 
   return (
     <div className={style.chat}>
