@@ -9,15 +9,15 @@ import { db } from '../../../../firebase';
 export const Messages = () => {
   const [messages, setMessages] = useState<DocumentData | null>(null);
 
+  //Do i need separate module for this selector if this will repeat?
   const chatID = useSelector((state: IRootState) => {
     if (!state?.chat?.user?.uid) {
       return null;
     }
-
     const result =
       state.auth.authData.uid > state.chat.user.uid
         ? state.auth.authData.uid + state.chat.user.uid
-        : state.chat.user.uid + state.auth.authData;
+        : state.chat.user.uid + state.auth.authData.uid;
 
     return result;
   });
