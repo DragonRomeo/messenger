@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { Message } from '../../../Message/Message';
+import { Message } from './Message/Message';
 import style from './Messages.module.scss';
 import { IRootState } from '../../../../store';
 import { useEffect, useState } from 'react';
