@@ -7,6 +7,7 @@ const authSlice = createSlice({
       displayName: '',
       photoURL: '',
       uid: '',
+      // lastMessage: '',
     },
   },
   reducers: {
@@ -14,6 +15,7 @@ const authSlice = createSlice({
       state.authData.displayName = action.payload.displayName;
       state.authData.photoURL = action.payload.photoURL;
       state.authData.uid = action.payload.uid;
+      // state.authData.lastMessage = action.payload.lastMessage;
     },
   },
 });

@@ -26,7 +26,7 @@ export const Chats = () => {
     currentUser.uid && getChats();
   }, [currentUser.uid]);
 
-  // console.log(chats && Object.entries(chats));
+  console.log('chats ', chats && Object.entries(chats));
   return (
     <div className={style.chats}>
       {chats &&
@@ -38,10 +38,10 @@ export const Chats = () => {
               return dispatch(addChatData(chat[1].userInfo));
             }}
           >
-            <img src={chat[1].userInfo.photoURL} alt='avatar' />
+            <img src={chat[1]?.userInfo?.photoURL} alt='avatar' />
             <div className={style2.user_chat_info}>
-              <span>{chat[1].userInfo.displayName}</span>
-              <p>{chat[1].userInfo.lastMessage?.text}</p>
+              <span>{chat[1].userInfo?.displayName}</span>
+              <p>{chat[1].lastMessage?.text}</p>
             </div>
           </div>
         ))}
