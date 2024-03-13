@@ -3,5 +3,30 @@
 .messages {
   padding: 10px;
   height: calc(100% - 130px);
-  overflow: scroll;
+  overflow-y: scroll;
+}
+
+.messages::-webkit-scrollbar {
+  background-color: transparent;
+  width: 10px;
+}
+
+.messages::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.messages:hover::-webkit-scrollbar-track {
+  background-color: $darkreader-bg2;
+}
+
+.messages::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  transition: background 1s;
+}
+
+.messages:hover::-webkit-scrollbar-thumb {
+  background-color: $highlight-hover-color;
+}
+
+.messages::-webkit-scrollbar-thumb:hover {
+  background-color: $highlight-hover-color;
 }
