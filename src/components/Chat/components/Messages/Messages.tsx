@@ -35,11 +35,12 @@ export const Messages = () => {
     };
   }, [chatID]);
 
-
   return (
     <div className={style.messages}>
       {messages &&
-        messages.map((mess) => <Message key={mess.id} message={mess} />)}
+        messages.map((mess: DocumentData) => (
+          <Message key={mess.id} message={mess} />
+        ))}
     </div>
   );
 };

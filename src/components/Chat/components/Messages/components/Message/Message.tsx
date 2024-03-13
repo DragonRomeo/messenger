@@ -1,9 +1,14 @@
 import { useSelector } from 'react-redux';
 import style from './Message.module.scss';
 import { IRootState } from '../../../../../../store';
-import { useEffect, useRef } from 'react';
+import { FC, useEffect, useRef } from 'react';
+import { DocumentData } from 'firebase/firestore';
 
-export const Message = ({ message }) => {
+interface Props {
+  message: DocumentData;
+}
+
+export const Message: FC<Props> = ({ message }) => {
   //TODO: I need separate file for selectors.
   const currentUser = useSelector((state: IRootState) => state.auth.authData);
   const secondUser = useSelector((state: IRootState) => state.chat.user);
