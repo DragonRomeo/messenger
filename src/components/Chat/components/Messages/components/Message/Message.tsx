@@ -13,6 +13,10 @@ export const Message: FC<Props> = ({ message }) => {
   const currentUser = useSelector((state: IRootState) => state.auth.authData);
   const secondUser = useSelector((state: IRootState) => state.chat.user);
 
+  const timestamp = message.date;
+  const date = new Date(timestamp.seconds * 1000);
+  const time = date.toTimeString().slice(0, 5);
+
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -37,7 +41,7 @@ export const Message: FC<Props> = ({ message }) => {
           }
           alt=''
         />
-        <span>just now</span>
+        <span>{time}</span>
       </div>
       <div className={style.message_content}>
         <p>{message.text}</p>

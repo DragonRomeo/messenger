@@ -28,6 +28,7 @@ export const Messages = () => {
     }
     const unSub = onSnapshot(doc(db, 'chats', chatID), (doc) => {
       doc.exists() && setMessages(doc.data().messages);
+      console.log(doc.exists() && doc.data().messages);
     });
 
     return () => {
