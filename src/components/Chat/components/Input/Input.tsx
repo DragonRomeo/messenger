@@ -60,12 +60,19 @@ export const Input = () => {
     setText('');
   };
 
+  const handleKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.code === 'Enter') {
+      handleSend();
+    }
+  };
+
   return (
     <div className={style.input}>
       <input
         type='text'
         placeholder='Write a message'
         onChange={(e) => setText(e.target.value)}
+        onKeyDown={handleKey}
         value={text}
       />
       <div className={style.send}>
