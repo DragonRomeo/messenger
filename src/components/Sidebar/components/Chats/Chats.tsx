@@ -30,21 +30,23 @@ export const Chats = () => {
   return (
     <div className={style.chats}>
       {chats &&
-        Object.entries(chats)?.map((chat) => (
-          <div
-            className={style2.user_chat}
-            key={chat[0]}
-            onClick={() => {
-              return dispatch(addChatData(chat[1].userInfo));
-            }}
-          >
-            <img src={chat[1]?.userInfo?.photoURL} alt='avatar' />
-            <div className={style2.user_chat_info}>
-              <span>{chat[1].userInfo?.displayName}</span>
-              <p>{chat[1].lastMessage?.text}</p>
+        Object.entries(chats)
+          ?.sort((a, b) => b[1].date - a[1].date)
+          .map((chat) => (
+            <div
+              className={style2.user_chat}
+              key={chat[0]}
+              onClick={() => {
+                return dispatch(addChatData(chat[1].userInfo));
+              }}
+            >
+              <img src={chat[1]?.userInfo?.photoURL} alt='avatar' />
+              <div className={style2.user_chat_info}>
+                <span>{chat[1].userInfo?.displayName}</span>
+                <p>{chat[1].lastMessage?.text}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
     </div>
   );
 };
