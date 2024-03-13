@@ -17,8 +17,7 @@ export const Input = () => {
 
   const currentUser = useSelector((state: IRootState) => state.auth.authData);
   const secondUser = useSelector((state: IRootState) => state.chat.user);
-  console.log('currentUser', currentUser);
-  console.log('secondUser', secondUser);
+
   const chatID = useSelector((state: IRootState) => {
     if (!state?.chat?.user?.uid) {
       return null;

@@ -1,7 +1,6 @@
 import style from './Message.module.scss';
 
 export const Message = ({ message }) => {
-  console.log('message props: ', message);
   return (
     <div className={`${style.message} ${style.owner}`}>
       <div className={style.message_info}>

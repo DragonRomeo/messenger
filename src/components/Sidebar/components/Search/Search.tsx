@@ -66,6 +66,7 @@ export const Search = () => {
             },
             [combinedId + '.date']: serverTimestamp(),
           });
+          console.log('user', user);
 
           await updateDoc(doc(db, 'userChats', user.uid), {
             [combinedId + '.userInfo']: {
@@ -75,6 +76,7 @@ export const Search = () => {
             },
             [combinedId + '.date']: serverTimestamp(),
           });
+          console.log('authData', authData);
         }
       } catch (error: unknown) {
         const err = error as Error;

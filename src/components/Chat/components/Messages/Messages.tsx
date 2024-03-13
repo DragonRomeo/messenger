@@ -21,7 +21,6 @@ export const Messages = () => {
 
     return result;
   });
-  console.log('chatID', chatID);
 
   useEffect(() => {
     if (!chatID) {
@@ -36,7 +35,6 @@ export const Messages = () => {
     };
   }, [chatID]);
 
-  console.log('messages ', messages);
 
   return (
     <div className={style.messages}>
