@@ -1,26 +1,14 @@
 import { useSelector } from 'react-redux';
 import { Message } from './components/Message/Message';
 import style from './Messages.module.scss';
-import { IRootState } from '../../../../store';
 import { useEffect, useState } from 'react';
 import { DocumentData, doc, onSnapshot } from 'firebase/firestore';
 import { db } from '../../../../firebase';
+import { selectors } from '../../../../models/selectors/selectors';
 
 export const Messages = () => {
   const [messages, setMessages] = useState<DocumentData | null>(null);
-
-  //Do i need separate module for this selector if this will repeat?
-  const chatID = useSelector((state: IRootState) => {
-    if (!state?.chat?.user?.uid) {
-      return null;
-    }
-    const result =
-      state.auth.authData.uid > state.chat.user.uid
-        ? state.auth.authData.uid + state.chat.user.uid
-        : state.chat.user.uid + state.auth.authData.uid;
-
-    return result;
-  });
+  const chatID = useSelector(selectors.chatID);
 
   useEffect(() => {
     if (!chatID) {
