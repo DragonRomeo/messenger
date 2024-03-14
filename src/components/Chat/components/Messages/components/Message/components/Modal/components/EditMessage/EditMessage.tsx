@@ -17,13 +17,11 @@ interface Props {
 
 export const EditMessage: FC<Props> = ({ style, message }) => {
   const chatID = useSelector(selectors.chatID);
-  console.log('chatID', chatID);
 
   const handleSend = async () => {
     if (!chatID) {
       return;
     }
-
     const editedText = 'Edited text la la la';
 
     new Promise((resolve) => {
@@ -38,7 +36,6 @@ export const EditMessage: FC<Props> = ({ style, message }) => {
           }),
         })
       );
-      console.log('async 1');
     }).then(() => {
       //STEP 2: add this object clone with new text field
       updateDoc(doc(db, 'chats', chatID), {
@@ -49,7 +46,6 @@ export const EditMessage: FC<Props> = ({ style, message }) => {
           date: message.date,
         }),
       });
-      console.log('async 2');
     });
   };
 
