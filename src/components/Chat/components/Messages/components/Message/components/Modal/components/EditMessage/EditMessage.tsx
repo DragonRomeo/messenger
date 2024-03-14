@@ -19,12 +19,6 @@ export const EditMessage: FC<Props> = ({ style, message }) => {
   const chatID = useSelector(selectors.chatID);
   console.log('chatID', chatID);
 
-  const handleClick = () => {
-    console.log('редактировать сообщение');
-    console.log('this message', message);
-    handleSend();
-  };
-
   const handleSend = async () => {
     if (!chatID) {
       return;
@@ -60,7 +54,7 @@ export const EditMessage: FC<Props> = ({ style, message }) => {
   };
 
   return (
-    <div className={style} onClick={handleClick}>
+    <div className={style} onClick={handleSend}>
       Edit message
     </div>
   );
