@@ -1,3 +1,9 @@
-export const DeleteMessage = ({ style }) => {
+import { FC } from 'react';
+
+interface Props {
+  style: string;
+}
+
+export const DeleteMessage: FC<Props> = ({ style }) => {
   return <div className={style}>Delete Message</div>;
 };

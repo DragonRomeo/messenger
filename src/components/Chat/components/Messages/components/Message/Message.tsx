@@ -26,12 +26,6 @@ export const Message: FC<Props> = ({ message }) => {
     ref.current?.scrollIntoView({ behavior: 'smooth' });
   }, [message]);
 
-  const handleClick = (e) => {
-    console.log('handleClick');
-    e.preventDefault();
-    setIsOpen((prevState) => !prevState);
-  };
-
   return (
     <div
       ref={ref}
@@ -52,7 +46,10 @@ export const Message: FC<Props> = ({ message }) => {
         />
         <span>{time}</span>
       </div>
-      <div className={style.message_content} onClick={handleClick}>
+      <div
+        className={style.message_content}
+        onClick={() => setIsOpen((prevState) => !prevState)}
+      >
         <p>{message.text}</p>
         {isOpen && <Modal />}
       </div>
