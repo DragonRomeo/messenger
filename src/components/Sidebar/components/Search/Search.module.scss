@@ -5,17 +5,19 @@
   border-bottom: 1px solid $grey;
 
   .search_form {
-    padding: 10px;
+    padding: 15px 10px;
 
     input {
-      background-color: transparent;
+      background-color: $darkreader-neutral-text;
       border: none;
-      color: inherit;
+      color: black;
       font-family: inherit;
+      font-size: 15px;
       outline: none;
-      border-bottom: 1px solid $border-light-color;
-      padding: 5px 0;
-      width: 90px;
+      border-bottom: 1px solid #4e4a46;
+      padding: 6px 10px;
+      width: 85%;
+      border-radius: 10px;
     }
   }
 }
