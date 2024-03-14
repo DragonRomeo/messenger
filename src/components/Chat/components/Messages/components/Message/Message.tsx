@@ -51,7 +51,7 @@ export const Message: FC<Props> = ({ message }) => {
         onClick={() => setIsOpen((prevState) => !prevState)}
       >
         <p>{message.text}</p>
-        {isOpen && <Modal />}
+        {isOpen && <Modal message={message} />}
       </div>
     </div>
   );
