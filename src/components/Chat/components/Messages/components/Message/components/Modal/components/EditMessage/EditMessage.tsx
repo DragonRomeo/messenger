@@ -1,6 +1,5 @@
 import {
   DocumentData,
-  Timestamp,
   arrayRemove,
   arrayUnion,
   doc,
@@ -33,14 +32,8 @@ export const EditMessage: FC<Props> = ({ style, message }) => {
 
     const editedText = 'Edited text la la la';
 
-    //STEP 1: Copy the message obj
-    const cloneMessage = {};
-    Object.assign(cloneMessage, message);
-    console.log('message origin', message);
-    console.log('cloneMessage ', cloneMessage);
-
-    const promise = new Promise((resolve, reject) => {
-      //STEP 2: delete this object on firestore
+    new Promise((resolve) => {
+      //STEP 1: delete this object on firestore
       resolve(
         updateDoc(doc(db, 'chats', chatID), {
           messages: arrayRemove({
@@ -53,13 +46,13 @@ export const EditMessage: FC<Props> = ({ style, message }) => {
       );
       console.log('async 1');
     }).then(() => {
-      //STEP 3: add this object clone with new text field
+      //STEP 2: add this object clone with new text field
       updateDoc(doc(db, 'chats', chatID), {
         messages: arrayUnion({
-          id: cloneMessage.id,
+          id: message.id,
           text: editedText,
-          senderId: cloneMessage.senderId,
-          date: cloneMessage.date,
+          senderId: message.senderId,
+          date: message.date,
         }),
       });
       console.log('async 2');
