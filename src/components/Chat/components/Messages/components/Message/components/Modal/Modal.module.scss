@@ -1,0 +1,21 @@
+@use '/src/assets/styles/variables.scss' as *;
+
+.modal_container {
+  background-color: $darkreader-neutral-text;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  font: 15px;
+  font-style: bold;
+  border-radius: 10px;
+  border: 3px solid $highlight-main-color;
+}
+
+.modal_message {
+  color: $black;
+  transition: color 0.5s;
+  cursor: pointer;
+  &:hover {
+    color: $highlight-hover-color;
+  }
+}

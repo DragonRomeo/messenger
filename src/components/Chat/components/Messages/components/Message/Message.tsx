@@ -1,14 +1,17 @@
 import { useSelector } from 'react-redux';
 import style from './Message.module.scss';
 import { IRootState } from '../../../../../../store';
-import { FC, useEffect, useRef } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import { DocumentData } from 'firebase/firestore';
+import { Modal } from './components/Modal/Modal';
 
 interface Props {
   message: DocumentData;
 }
 
 export const Message: FC<Props> = ({ message }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   //TODO: I need separate file for selectors.
   const currentUser = useSelector((state: IRootState) => state.auth.authData);
   const secondUser = useSelector((state: IRootState) => state.chat.user);
@@ -22,6 +25,12 @@ export const Message: FC<Props> = ({ message }) => {
   useEffect(() => {
     ref.current?.scrollIntoView({ behavior: 'smooth' });
   }, [message]);
+
+  const handleClick = (e) => {
+    console.log('handleClick');
+    e.preventDefault();
+    setIsOpen((prevState) => !prevState);
+  };
 
   return (
     <div
@@ -43,8 +52,9 @@ export const Message: FC<Props> = ({ message }) => {
         />
         <span>{time}</span>
       </div>
-      <div className={style.message_content}>
+      <div className={style.message_content} onClick={handleClick}>
         <p>{message.text}</p>
+        {isOpen && <Modal />}
       </div>
     </div>
   );
