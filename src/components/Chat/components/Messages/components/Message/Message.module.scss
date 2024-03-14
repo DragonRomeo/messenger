@@ -4,10 +4,11 @@
   display: flex;
   gap: 20px;
   margin-bottom: 20px;
+  align-items: flex-end;
 
   &.owner {
     flex-direction: row-reverse;
-    align-items: flex-end;
+    
 
     .message_content {
       align-items: flex-end;
