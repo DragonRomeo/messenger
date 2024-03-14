@@ -11,6 +11,7 @@ import {
 import { db } from '../../../../firebase';
 import { v4 as uuid } from 'uuid';
 import { useState } from 'react';
+import { selectors } from '../../../../models/selectors/selectors';
 
 export const Input = () => {
   const [text, setText] = useState('');
@@ -18,17 +19,7 @@ export const Input = () => {
   const currentUser = useSelector((state: IRootState) => state.auth.authData);
   const secondUser = useSelector((state: IRootState) => state.chat.user);
 
-  const chatID = useSelector((state: IRootState) => {
-    if (!state?.chat?.user?.uid) {
-      return null;
-    }
-    const result =
-      state.auth.authData.uid > state.chat.user.uid
-        ? state.auth.authData.uid + state.chat.user.uid
-        : state.chat.user.uid + state.auth.authData.uid;
-
-    return result;
-  });
+  const chatID = useSelector(selectors.chatID);
 
   const handleSend = async () => {
     if (!chatID) {
