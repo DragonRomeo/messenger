@@ -27,9 +27,13 @@ export const Messages = () => {
       return;
     }
     const unSub = onSnapshot(doc(db, 'chats', chatID), (doc) => {
-      doc.exists() && setMessages(doc.data().messages);
-      console.log('messages', doc.exists() && doc.data().messages);
+      //Add sorting by date before put in state
+      doc.exists() &&
+        setMessages(doc.data().messages.sort((a: { date: number; }, b: { date: number; }) => a.date - b.date));
+      // console.log('messages', doc.exists() && doc.data().messages);
     });
+
+    console.log('messages', messages);
 
     return () => {
       unSub();
