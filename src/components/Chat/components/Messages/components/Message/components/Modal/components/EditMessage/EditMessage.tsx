@@ -13,8 +13,6 @@ import { selectors } from '../../../../../../../../../../models/selectors/select
 interface Props {
   style: string;
   message: DocumentData;
-  callback: () => void;
-  editedText: null | string;
 }
 
 export const EditMessage: FC<Props> = ({ style, message }) => {
