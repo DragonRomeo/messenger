@@ -5,7 +5,7 @@ import {
   doc,
   updateDoc,
 } from 'firebase/firestore';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { db } from '../../../../../../../../../../firebase';
 import { useSelector } from 'react-redux';
 import { selectors } from '../../../../../../../../../../models/selectors/selectors';
@@ -13,17 +13,25 @@ import { selectors } from '../../../../../../../../../../models/selectors/select
 interface Props {
   style: string;
   message: DocumentData;
+  callback: () => void;
+  editedText: null | string;
 }
 
 export const EditMessage: FC<Props> = ({ style, message }) => {
+  const [text, setText] = useState<string>('');
+  const [isInputOpen, setIsInputOpen] = useState(false);
+
   const chatID = useSelector(selectors.chatID);
 
-  const handleSend = async () => {
+  const handleClick = () => {
+    console.log('handleClick');
+    setIsInputOpen((prevState) => !prevState);
+  };
+
+  const handleSend = async (editedText: string) => {
     if (!chatID) {
       return;
     }
-    const editedText = 'Edited text la la la';
-
     new Promise((resolve) => {
       //STEP 1: delete this object on firestore
       resolve(
@@ -49,9 +57,27 @@ export const EditMessage: FC<Props> = ({ style, message }) => {
     });
   };
 
+  const handleKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.code === 'Enter') {
+      handleSend(text);
+    }
+  };
+
   return (
-    <div className={style} onClick={handleSend}>
-      Edit message
-    </div>
+    <>
+      {!isInputOpen ? (
+        <div className={style} onClick={handleClick}>
+          Edit message
+        </div>
+      ) : (
+        <input
+          type='text'
+          placeholder='edit text here'
+          onChange={(e) => setText(e.target.value)}
+          value={text}
+          onKeyDown={handleKey}
+        />
+      )}
+    </>
   );
 };

@@ -19,3 +19,20 @@
     color: $highlight-hover-color;
   }
 }
+
+.modal_input_container {
+  width: 50%;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.edit_input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: white;
+  font-size: 14px;
+  font-family: inherit;
+  color: black;
+}
