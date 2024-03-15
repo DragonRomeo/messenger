@@ -22,6 +22,10 @@ export const Message: FC<Props> = ({ message }) => {
 
   const ref = useRef<HTMLDivElement>(null);
 
+  const closeModal = () => {
+    setIsOpen((prevState) => !prevState);
+  };
+
   useEffect(() => {
     ref.current?.scrollIntoView({ behavior: 'smooth' });
   }, [message]);
@@ -52,7 +56,7 @@ export const Message: FC<Props> = ({ message }) => {
       >
         <p>{message.text}</p>
       </div>
-        {isOpen && <Modal message={message} />}
+      {isOpen && <Modal closeModal={closeModal} message={message} />}
     </div>
   );
 };

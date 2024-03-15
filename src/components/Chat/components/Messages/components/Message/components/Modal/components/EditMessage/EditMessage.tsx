@@ -11,11 +11,16 @@ import { useSelector } from 'react-redux';
 import { selectors } from '../../../../../../../../../../models/selectors/selectors';
 
 interface Props {
-  style: string;
+  style: CSSModuleClasses;
   message: DocumentData;
+  closeDeleteMessages: () => void;
 }
 
-export const EditMessage: FC<Props> = ({ style, message }) => {
+export const EditMessage: FC<Props> = ({
+  style,
+  message,
+  closeDeleteMessages,
+}) => {
   const [text, setText] = useState<string>('');
   const [isInputOpen, setIsInputOpen] = useState(false);
 
@@ -24,6 +29,7 @@ export const EditMessage: FC<Props> = ({ style, message }) => {
   const handleClick = () => {
     console.log('handleClick');
     setIsInputOpen((prevState) => !prevState);
+    closeDeleteMessages();
   };
 
   const handleSend = async (editedText: string) => {
@@ -55,7 +61,7 @@ export const EditMessage: FC<Props> = ({ style, message }) => {
     });
   };
 
-  const handleKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKey = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.code === 'Enter') {
       handleSend(text);
     }
@@ -64,12 +70,12 @@ export const EditMessage: FC<Props> = ({ style, message }) => {
   return (
     <>
       {!isInputOpen ? (
-        <div className={style} onClick={handleClick}>
+        <div className={style.modal_message} onClick={handleClick}>
           Edit message
         </div>
       ) : (
-        <input
-          type='text'
+        <textarea
+          className={style.edit_input}
           placeholder='edit text here'
           onChange={(e) => setText(e.target.value)}
           value={text}

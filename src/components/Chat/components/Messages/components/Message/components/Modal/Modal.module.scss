@@ -1,15 +1,28 @@
 @use '/src/assets/styles/variables.scss' as *;
 
-.modal_container {
+.modal {
+  min-width: 180px;
   background-color: $darkreader-neutral-text;
   padding: 10px;
   display: flex;
   flex-direction: column;
+  position: absolute;
+  border: 3px solid $highlight-main-color;
+  border-radius: 10px;
+}
+
+.modal_container {
+  display: flex;
+  width: 90%;
+  flex-direction: column;
   font: 15px;
   font-style: bold;
-  border-radius: 10px;
-  border: 3px solid $highlight-main-color;
-  position: absolute;
+}
+
+.modal_container__exit {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
 }
 
 .modal_message {
@@ -36,4 +49,42 @@
   font-size: 14px;
   font-family: inherit;
   color: black;
+  padding: 4px 30px;
+  border-radius: 5px;
+}
+
+.closeModal {
+  position: absolute;
+  top: 4px;
+  right: 28px;
+  height: 24px;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: opacity ease 0.5s;
+  width: 5px;
+  height: 5px;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.closeModal::before,
+.closeModal::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: #000;
+  border-radius: 100px;
+}
+
+.closeModal::before {
+  transform: rotate(45deg);
+}
+
+.closeModal::after {
+  transform: rotate(-45deg);
 }
