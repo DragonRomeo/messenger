@@ -17,7 +17,6 @@ export const Modal: FC<Props> = ({ message, closeModal }) => {
   };
 
   const handleClick = () => {
-    console.log('');
     closeModal();
   };
 
