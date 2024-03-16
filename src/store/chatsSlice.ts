@@ -5,7 +5,6 @@ interface IUser {
     displayName?: string;
     photoURL?: string;
     uid?: string;
-    lastMessage?: string;
   };
 }
 

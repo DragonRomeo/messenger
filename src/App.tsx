@@ -10,10 +10,8 @@ import { useDispatch } from 'react-redux';
 import { addAuthData } from './store/authSlice';
 
 function App() {
-  //maybe will need to add "{}" in useState for init state
   const [currentUser, setCurrentUser] = useState<User | null>(null);
   const dispatch = useDispatch();
-  //TODO: FIX LOGIN / AUTH RENDER LATER!!!
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (user) => {
@@ -25,7 +23,7 @@ function App() {
           uid: user?.uid,
         })
       );
-      console.log(user);
+      console.log('user', user);
     });
 
     return () => {

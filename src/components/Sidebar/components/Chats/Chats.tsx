@@ -26,7 +26,7 @@ export const Chats = () => {
     currentUser.uid && getChats();
   }, [currentUser.uid]);
 
-  console.log('chats ', chats && Object.entries(chats));
+  // console.log('chats ', chats && Object.entries(chats));
   return (
     <div className={style.chats}>
       {chats &&
