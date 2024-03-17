@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export interface IAuth {
-  displayName?: string;
-  photoURL?: string;
-  uid?: string;
+  displayName: string;
+  photoURL: string;
+  uid: string;
 }
 
 const authSlice = createSlice({
@@ -13,7 +13,6 @@ const authSlice = createSlice({
       displayName: '',
       photoURL: '',
       uid: '',
-      // lastMessage: '',
     } as IAuth,
   },
   reducers: {
@@ -21,7 +20,6 @@ const authSlice = createSlice({
       state.authData.displayName = action.payload.displayName;
       state.authData.photoURL = action.payload.photoURL;
       state.authData.uid = action.payload.uid;
-      // state.authData.lastMessage = action.payload.lastMessage;
     },
   },
 });
