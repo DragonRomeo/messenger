@@ -8,6 +8,8 @@ import icon from '../../assets/icons/icon_filter.png';
 
 export const Chat = () => {
   const [isShowFilter, setIsShowFilter] = useState(false);
+  const [startDate, setStartData] = useState<string | null>(null);
+  const [endDate, setEndData] = useState<string | null>(null);
   //Write a selector for sumID
   const user = useSelector((state: IRootState) => state.chat.user);
 
@@ -24,11 +26,14 @@ export const Chat = () => {
             <div className={style.close_filter} onClick={handleClick}></div>
             <div className={style.date_container}>
               <span>Start</span>
-              <input type='date' />
+              <input
+                type='date'
+                onChange={(e) => setStartData(e.target.value)}
+              />
             </div>
             <div className={style.date_container}>
               <span>End</span>
-              <input type='date' />
+              <input type='date' onChange={(e) => setEndData(e.target.value)} />
             </div>
           </div>
         ) : (
@@ -37,7 +42,7 @@ export const Chat = () => {
           </button>
         )}
       </div>
-      <Messages />
+      <Messages startDate={startDate} endDate={endDate} />
       <Input />
     </div>
   );
