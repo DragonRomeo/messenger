@@ -51,10 +51,12 @@ export const Messages: FC<Props> = ({ startDate, endDate }) => {
   }, [chatID]);
   console.log('messages', messages);
 
+  const currMessages = filter ? filter : messages;
+
   return (
     <div className={style.messages}>
-      {messages &&
-        messages.map((mess: DocumentData) => (
+      {currMessages &&
+        currMessages.map((mess: DocumentData) => (
           <Message key={mess.id} message={mess} />
         ))}
     </div>
