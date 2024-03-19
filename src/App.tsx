@@ -2,16 +2,12 @@ import { useEffect, useState } from 'react';
 import { Home } from './pages/Home/Home';
 import { Login } from './pages/Login/Login';
 import { Register } from './pages/Register/Register';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { User, onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase';
 import { DataContext } from './context/context';
 import { useDispatch } from 'react-redux';
 import { addAuthData } from './store/authSlice';
-
-interface Children {
-  children: React.ReactElement;
-}
 
 function App() {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
