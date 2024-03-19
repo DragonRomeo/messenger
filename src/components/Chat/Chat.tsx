@@ -12,8 +12,9 @@ export const Chat = () => {
   const [isShowUserFilter, setIsShowUserFilter] = useState(false);
   const [startDate, setStartData] = useState<string | null>(null);
   const [endDate, setEndData] = useState<string | null>(null);
-  //Write a selector for sumID
+
   const user = useSelector((state: IRootState) => state.chat.user);
+  const chatOwner = useSelector((state: IRootState) => state.auth.authData);
 
   const handleClick = () => {
     setIsShowFilter((prevState) => !prevState);
@@ -54,7 +55,16 @@ export const Chat = () => {
             )}
 
             {isShowUserFilter ? (
-              <></>
+              <div className={style.user_filter_container}>
+                <div className={style.user_filter}>
+                  <img src={user.photoURL} alt='user_icon' />
+                  <span>{user.displayName}</span>
+                </div>
+                <div className={style.user_filter}>
+                  <img src={chatOwner.photoURL} alt='chatOwner_icon' />
+                  <span>{chatOwner.displayName}</span>
+                </div>
+              </div>
             ) : (
               <button className={style.filter} onClick={handleClickUser}>
                 <img src={user_filter_icon} alt='user_filter' />

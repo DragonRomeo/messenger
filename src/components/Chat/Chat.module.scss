@@ -27,6 +27,10 @@
   border-right: 1px solid $grey;
   border-left: 1px solid $grey;
   padding: 0 5px;
+
+  span {
+    font-size: 16px;
+  }
 }
 
 .date_container {
@@ -105,4 +109,36 @@
   display: flex;
   flex-direction: row;
   gap: 10px;
+}
+
+.user_filter_container {
+  display: flex;
+  gap: 10px;
+
+  .user_filter {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: $darkreader-bg2;
+    border-radius: 20px;
+    padding: 5px;
+    transition: background-color ease 0.5s;
+    cursor: pointer;
+
+    span {
+      font-size: 14px;
+    }
+
+    img {
+      background-color: white;
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    &:hover {
+      background-color: $highlight-hover-color;
+    }
+  }
 }

@@ -9,7 +9,6 @@
 
   &.owner {
     flex-direction: row-reverse;
-    
 
     .message_content {
       align-items: flex-end;
@@ -40,12 +39,17 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  cursor: pointer;
 
   p {
     background-color: $darkreader-bg2;
     color: white;
     padding: 10px 20px;
     border-radius: 0px 10px 10px 10px;
+    transition: background-color ease 0.5s;
+    &:hover {
+      background-color: hsl(219deg 28.53% 21.81%);
+    }
   }
   img {
     width: 50%;
