@@ -85,6 +85,11 @@
   }
 }
 
+.close_filter_2 {
+  top: 0px;
+  right: 13px;
+}
+
 .close_filter::before,
 .close_filter::after {
   content: '';
@@ -108,12 +113,15 @@
 .filters_container {
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 10px;
 }
 
 .user_filter_container {
   display: flex;
   gap: 10px;
+  padding: 13px 17px 13px 0px;
+  position: relative;
 
   .user_filter {
     display: flex;

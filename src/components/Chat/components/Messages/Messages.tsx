@@ -9,11 +9,13 @@ import { selectors } from '../../../../models/selectors/selectors';
 interface Props {
   startDate: string | null;
   endDate: string | null;
+  userFilterName: string | null;
 }
 
-export const Messages: FC<Props> = ({ startDate, endDate }) => {
+export const Messages: FC<Props> = ({ startDate, endDate, userFilterName }) => {
   const [messages, setMessages] = useState<DocumentData | null>(null);
   const chatID = useSelector(selectors.chatID);
+  console.log('userFilterName', userFilterName);
 
   const filterByDate = () => {
     if (!messages || !startDate || !endDate) {
@@ -30,6 +32,18 @@ export const Messages: FC<Props> = ({ startDate, endDate }) => {
     return filter;
   };
   const filter = filterByDate();
+
+  const filterByUser = () => {
+    if (!messages) {
+      return;
+    }
+    const filter = messages.filter(
+      (msg: DocumentData) => msg.displayName === userFilterName
+    );
+    return filter;
+  };
+  const userFilter = filterByUser();
+  console.log('userFilter', userFilter);
 
   useEffect(() => {
     if (!chatID) {

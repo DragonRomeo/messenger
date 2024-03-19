@@ -10,17 +10,19 @@ import user_filter_icon from '../../assets/icons/user_filter_icon.png';
 export const Chat = () => {
   const [isShowFilter, setIsShowFilter] = useState(false);
   const [isShowUserFilter, setIsShowUserFilter] = useState(false);
+  /* I should replace this 2 state (start & end) for 1 when I start refactoring.*/
   const [startDate, setStartData] = useState<string | null>(null);
   const [endDate, setEndData] = useState<string | null>(null);
+  const [userFilterName, setUserFilterName] = useState('');
 
   const user = useSelector((state: IRootState) => state.chat.user);
   const chatOwner = useSelector((state: IRootState) => state.auth.authData);
 
-  const handleClick = () => {
+  const handleSwitchFilter = () => {
     setIsShowFilter((prevState) => !prevState);
   };
 
-  const handleClickUser = () => {
+  const handleSwitchUser = () => {
     setIsShowUserFilter((prevState) => !prevState);
   };
 
@@ -32,7 +34,10 @@ export const Chat = () => {
           <div className={style.filters_container}>
             {isShowFilter ? (
               <div className={style.chat_icons}>
-                <div className={style.close_filter} onClick={handleClick}></div>
+                <div
+                  className={style.close_filter}
+                  onClick={handleSwitchFilter}
+                ></div>
                 <div className={style.date_container}>
                   <span>Start</span>
                   <input
@@ -49,24 +54,41 @@ export const Chat = () => {
                 </div>
               </div>
             ) : (
-              <button className={style.filter} onClick={handleClick}>
+              <button className={style.filter} onClick={handleSwitchFilter}>
                 <img src={date_filter_icon} alt='date_filter' />
               </button>
             )}
 
             {isShowUserFilter ? (
               <div className={style.user_filter_container}>
-                <div className={style.user_filter}>
-                  <img src={user.photoURL} alt='user_icon' />
-                  <span>{user.displayName}</span>
+                <div
+                  className={style.user_filter}
+                  onClick={() => {
+                    user.displayName && setUserFilterName(user.displayName);
+                    handleSwitchUser();
+                  }}
+                >
+                  <img src={user?.photoURL} alt='user_icon' />
+                  <span>{user?.displayName}</span>
                 </div>
-                <div className={style.user_filter}>
-                  <img src={chatOwner.photoURL} alt='chatOwner_icon' />
-                  <span>{chatOwner.displayName}</span>
+                <div
+                  className={style.user_filter}
+                  onClick={() => {
+                    chatOwner.displayName &&
+                      setUserFilterName(chatOwner.displayName);
+                    handleSwitchUser();
+                  }}
+                >
+                  <img src={chatOwner?.photoURL} alt='chatOwner_icon' />
+                  <span>{chatOwner?.displayName}</span>
                 </div>
+                <div
+                  className={`${style.close_filter} ${style.close_filter_2}`}
+                  onClick={handleSwitchUser}
+                ></div>
               </div>
             ) : (
-              <button className={style.filter} onClick={handleClickUser}>
+              <button className={style.filter} onClick={handleSwitchUser}>
                 <img src={user_filter_icon} alt='user_filter' />
               </button>
             )}
@@ -74,7 +96,11 @@ export const Chat = () => {
         )}
       </div>
 
-      <Messages startDate={startDate} endDate={endDate} />
+      <Messages
+        startDate={startDate}
+        endDate={endDate}
+        userFilterName={userFilterName}
+      />
       <Input />
     </div>
   );
