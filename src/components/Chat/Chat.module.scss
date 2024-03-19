@@ -12,6 +12,10 @@
   padding: 35px 20px;
   color: $darkreader-neutral-text;
   border-bottom: 1px solid $grey;
+
+  span {
+    font-size: 25px;
+  }
 }
 
 .chat_icons {
@@ -95,4 +99,10 @@
 
 .close_filter::after {
   transform: rotate(-45deg);
+}
+
+.filters_container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
