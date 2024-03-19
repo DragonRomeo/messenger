@@ -35,26 +35,12 @@ function App() {
     };
   }, [dispatch]);
 
-  const ProtectedRoute = ({ children }: Children) => {
-    if (!currentUser) {
-      return <Navigate to='/login' />;
-    }
-    return children;
-  };
-
   return (
     <>
       <DataContext.Provider value={{ currentUser }}>
         <Routes>
           <Route path='/'>
-            <Route
-              index
-              element={
-                <ProtectedRoute>
-                  <Home />
-                </ProtectedRoute>
-              }
-            ></Route>
+            <Route index element={currentUser ? <Home /> : <Login />}></Route>
             <Route path='login' element={<Login />}></Route>
             <Route path='register' element={<Register />}></Route>
           </Route>
