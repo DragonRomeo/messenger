@@ -31,6 +31,7 @@ export const Input = () => {
         text,
         senderId: currentUser.uid,
         date: Timestamp.now(),
+        name: currentUser.displayName,
       }),
     });
     await updateDoc(doc(db, 'userChats', currentUser.uid), {

@@ -38,7 +38,7 @@ export const Messages: FC<Props> = ({ startDate, endDate, userFilterName }) => {
       return;
     }
     const filter = messages.filter(
-      (msg: DocumentData) => msg.displayName === userFilterName
+      (msg: DocumentData) => msg.name === userFilterName
     );
     return filter;
   };
