@@ -12,10 +12,9 @@ export const Navbar = () => {
   const currentUserRedux = useSelector(
     (state: IRootState) => state.auth.authData
   );
-  console.log('reduxUser', currentUser);
 
   useEffect(() => {
-    /*Check FAQ on docs for this part of code */
+    /*Used only one time after 1t register*/
     if (currentUser && !currentUser.displayName) {
       const getUnsub = () => {
         const unsub = onAuthStateChanged(auth, (user) => {
