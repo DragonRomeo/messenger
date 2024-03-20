@@ -71,6 +71,13 @@
   }
 }
 
+.filter2 {
+  img {
+    width: 25px;
+    height: 25px;
+  }
+}
+
 .close_filter {
   position: absolute;
   top: -5px;
@@ -86,6 +93,11 @@
 }
 
 .close_filter_2 {
+  top: 0px;
+  right: 13px;
+}
+
+.close_filter_3 {
   top: 0px;
   right: 13px;
 }
@@ -115,6 +127,7 @@
   flex-direction: row;
   align-items: center;
   gap: 10px;
+  position: relative;
 }
 
 .user_filter_container {
