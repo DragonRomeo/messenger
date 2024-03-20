@@ -1,20 +1,31 @@
 import { useSelector } from 'react-redux';
 import { Message } from './components/Message/Message';
 import style from './Messages.module.scss';
-import { FC, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DocumentData, doc, onSnapshot } from 'firebase/firestore';
 import { db } from '../../../../firebase';
 import { selectors } from '../../../../models/selectors/selectors';
+import { IRootState } from '../../../../store';
 
-interface Props {
-  startDate: string | null;
-  endDate: string | null;
-  userFilterName: string | null;
-}
+// interface Props {
+//   startDate: string | null;
+//   endDate: string | null;
+//   userFilterName: string | null;
+// }
 
-export const Messages: FC<Props> = ({ startDate, endDate, userFilterName }) => {
+export const Messages = () => {
   const [messages, setMessages] = useState<DocumentData | null>(null);
   const chatID = useSelector(selectors.chatID);
+  const startDate = useSelector(
+    (state: IRootState) => state.filters.filtersData.startDate
+  );
+  const endDate = useSelector(
+    (state: IRootState) => state.filters.filtersData.endDate
+  );
+  const userFilterName = useSelector(
+    (state: IRootState) => state.filters.filtersData.userFilterName
+  );
+
   console.log('userFilterName', userFilterName);
 
   const filterByDate = (array: DocumentData | null) => {
