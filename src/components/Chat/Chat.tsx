@@ -14,7 +14,7 @@ export const Chat = () => {
   const [isShowFilter, setIsShowFilter] = useState(false);
   const [isShowDate, setIsShowDate] = useState(false);
   const [isShowUser, setIsShowUser] = useState(false);
-  /* I should replace this 2 state (start & end) for 1 when I start refactoring.*/
+  /* I should replace this 2 state (start & end) for 1 when I start refactoring?*/
   const [startDate, setStartData] = useState<string | null>(null);
   const [endDate, setEndData] = useState<string | null>(null);
   const [userFilterName, setUserFilterName] = useState('');
@@ -28,10 +28,12 @@ export const Chat = () => {
 
   const handleSwitchDate = () => {
     setIsShowDate((prevState) => !prevState);
+    isShowUser && setIsShowUser(false);
   };
 
   const handleSwitchUser = () => {
     setIsShowUser((prevState) => !prevState);
+    isShowDate && setIsShowDate(false);
   };
 
   return (
