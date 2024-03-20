@@ -17,13 +17,16 @@ export const Chat = () => {
   /* I should replace this 2 state (start & end) for 1 when I start refactoring?*/
   const [startDate, setStartData] = useState<string | null>(null);
   const [endDate, setEndData] = useState<string | null>(null);
-  const [userFilterName, setUserFilterName] = useState('');
+  const [userFilterName, setUserFilterName] = useState<string | null>(null);
 
   const user = useSelector((state: IRootState) => state.chat.user);
   const chatOwner = useSelector((state: IRootState) => state.auth.authData);
 
   const handleSwitchFilter = () => {
     setIsCloseFilter((prevState) => !prevState);
+    setStartData(null);
+    setEndData(null);
+    setUserFilterName(null);
   };
 
   const handleSwitchDate = () => {
