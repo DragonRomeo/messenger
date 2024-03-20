@@ -30,6 +30,7 @@
   color: white;
   background-color: $darkreader-neutral-background;
   font: inherit;
+  cursor: pointer;
   transition: background-color $main-transition-time,
     color $main-transition-time;
 
