@@ -17,11 +17,11 @@ export const Messages: FC<Props> = ({ startDate, endDate, userFilterName }) => {
   const chatID = useSelector(selectors.chatID);
   console.log('userFilterName', userFilterName);
 
-  const filterByDate = () => {
-    if (!messages || !startDate || !endDate) {
+  const filterByDate = (array: DocumentData | null) => {
+    if (!array || !startDate || !endDate) {
       return;
     }
-    const filter = messages.filter((msg: DocumentData) => {
+    const filter = array.filter((msg: DocumentData) => {
       const start = new Date(Date.parse(startDate)).toLocaleDateString();
       const end = new Date(Date.parse(endDate)).toLocaleDateString();
       const msgDate = new Date(msg.date.seconds * 1000).toLocaleDateString();
@@ -31,18 +31,18 @@ export const Messages: FC<Props> = ({ startDate, endDate, userFilterName }) => {
     console.log('filter', filter);
     return filter;
   };
-  const filter = filterByDate();
+  const dateFilter = filterByDate(messages);
 
-  const filterByUser = () => {
-    if (!messages) {
+  const filterByUser = (array: DocumentData | null) => {
+    if (!array || !userFilterName) {
       return;
     }
-    const filter = messages.filter(
+    const filter = array.filter(
       (msg: DocumentData) => msg.name === userFilterName
     );
     return filter;
   };
-  const userFilter = filterByUser();
+  const userFilter = filterByUser(messages);
   console.log('userFilter', userFilter);
 
   useEffect(() => {
@@ -65,7 +65,10 @@ export const Messages: FC<Props> = ({ startDate, endDate, userFilterName }) => {
   }, [chatID]);
   console.log('messages', messages);
 
-  const currMessages = filter ? filter : messages;
+  let currMessages = messages;
+  if (dateFilter) currMessages = dateFilter;
+  if (userFilter) currMessages = userFilter;
+  if (dateFilter && userFilter) currMessages = filterByDate(userFilter);
 
   return (
     <div className={style.messages}>
