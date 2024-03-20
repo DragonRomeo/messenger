@@ -9,7 +9,8 @@
 
   .container {
     background-color: #222222;
-    border: 1px solid $grey;
+    min-width: 660px;
+    box-shadow: rgb(113 121 130 / 30%) 0px 0px 0px 3px;
     border-radius: 10px;
     width: 65%;
     height: 80%;

@@ -33,6 +33,9 @@
     border-radius: 50%;
     object-fit: cover;
   }
+  span {
+    color: $true-grey;
+  }
 }
 .message_content {
   max-width: 80%;
