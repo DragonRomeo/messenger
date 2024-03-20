@@ -56,7 +56,7 @@ export const Message: FC<Props> = ({ message }) => {
       >
         <p>{message.text}</p>
       </div>
-      {isOpen && <Modal closeModal={closeModal} message={message} />}
+      {isOpen && message.senderId === currentUser.uid && <Modal closeModal={closeModal} message={message} />}
     </div>
   );
 };
