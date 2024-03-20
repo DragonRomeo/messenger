@@ -11,9 +11,9 @@ import user_filter_icon from '../../assets/icons/user_filter_icon.png';
 
 export const Chat = () => {
   // Component is so big. Need to moved logic with filters in new one
-  const [isShowFilter, setIsShowFilter] = useState(false);
-  const [isShowDate, setIsShowDate] = useState(false);
-  const [isShowUser, setIsShowUser] = useState(false);
+  const [isCloseFilter, setIsCloseFilter] = useState(false);
+  const [isCloseDate, setIsCloseDate] = useState(false);
+  const [isCloseUser, setIsCloseUser] = useState(false);
   /* I should replace this 2 state (start & end) for 1 when I start refactoring?*/
   const [startDate, setStartData] = useState<string | null>(null);
   const [endDate, setEndData] = useState<string | null>(null);
@@ -23,17 +23,17 @@ export const Chat = () => {
   const chatOwner = useSelector((state: IRootState) => state.auth.authData);
 
   const handleSwitchFilter = () => {
-    setIsShowFilter((prevState) => !prevState);
+    setIsCloseFilter((prevState) => !prevState);
   };
 
   const handleSwitchDate = () => {
-    setIsShowDate((prevState) => !prevState);
-    isShowUser && setIsShowUser(false);
+    setIsCloseDate((prevState) => !prevState);
+    isCloseUser && setIsCloseUser(false);
   };
 
   const handleSwitchUser = () => {
-    setIsShowUser((prevState) => !prevState);
-    isShowDate && setIsShowDate(false);
+    setIsCloseUser((prevState) => !prevState);
+    isCloseDate && setIsCloseDate(false);
   };
 
   return (
@@ -41,7 +41,7 @@ export const Chat = () => {
       <div className={style.chat_info}>
         <span>{user?.displayName}</span>
         {user?.displayName &&
-          (isShowFilter ? (
+          (isCloseFilter ? (
             <button className={style.filter} onClick={handleSwitchFilter}>
               <img src={filter_icon} alt='filter' />
             </button>
@@ -53,7 +53,7 @@ export const Chat = () => {
               >
                 <img src={back_icon} alt='back' />
               </div>
-              {isShowDate ? (
+              {isCloseDate ? (
                 <div className={style.chat_icons}>
                   <div
                     className={style.close_filter}
@@ -80,7 +80,7 @@ export const Chat = () => {
                 </button>
               )}
 
-              {isShowUser ? (
+              {isCloseUser ? (
                 <div className={style.user_filter_container}>
                   <div
                     className={style.user_filter}
