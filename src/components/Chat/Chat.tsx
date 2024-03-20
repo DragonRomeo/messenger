@@ -4,7 +4,7 @@ import style from './Chat.module.scss';
 import { useSelector } from 'react-redux';
 import { IRootState } from '../../store';
 import { useState } from 'react';
-import date_filter_icon from '../../assets/icons/icon_filter.png';
+import date_filter_icon from '../../assets/icons/date_icon.png';
 import user_filter_icon from '../../assets/icons/user_filter_icon.png';
 
 export const Chat = () => {
