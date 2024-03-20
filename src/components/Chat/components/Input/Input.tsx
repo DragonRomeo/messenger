@@ -22,7 +22,7 @@ export const Input = () => {
   const chatID = useSelector(selectors.chatID);
 
   const handleSend = async () => {
-    if (!chatID) {
+    if (!chatID || text.length < 1) {
       return;
     }
     await updateDoc(doc(db, 'chats', chatID), {
