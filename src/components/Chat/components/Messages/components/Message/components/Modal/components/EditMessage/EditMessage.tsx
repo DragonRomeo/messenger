@@ -44,6 +44,7 @@ export const EditMessage: FC<Props> = ({
             text: message.text,
             senderId: message.senderId,
             date: message.date,
+            name: message.name,
           }),
         })
       );
@@ -55,6 +56,7 @@ export const EditMessage: FC<Props> = ({
           text: editedText,
           senderId: message.senderId,
           date: message.date,
+          name: message.name,
         }),
       });
     });

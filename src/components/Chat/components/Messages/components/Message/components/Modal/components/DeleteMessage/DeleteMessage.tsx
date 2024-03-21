@@ -26,6 +26,7 @@ export const DeleteMessage: FC<Props> = ({ style, message }) => {
             text: message.text,
             senderId: message.senderId,
             date: message.date,
+            name: message.name,
           }),
         })
       );
