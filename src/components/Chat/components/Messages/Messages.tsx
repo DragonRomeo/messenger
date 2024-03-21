@@ -26,8 +26,6 @@ export const Messages = () => {
     (state: IRootState) => state.filters.filtersData.userFilterName
   );
 
-  console.log('userFilterName', userFilterName);
-
   const filterByDate = (array: DocumentData | null) => {
     if (!array || !startDate || !endDate) {
       return;
@@ -39,7 +37,6 @@ export const Messages = () => {
 
       return msgDate >= start && msgDate <= end;
     });
-    console.log('filter', filter);
     return filter;
   };
   const dateFilter = filterByDate(messages);
@@ -54,7 +51,6 @@ export const Messages = () => {
     return filter;
   };
   const userFilter = filterByUser(messages);
-  console.log('userFilter', userFilter);
 
   useEffect(() => {
     if (!chatID) {
@@ -74,7 +70,6 @@ export const Messages = () => {
       unSub();
     };
   }, [chatID]);
-  console.log('messages', messages);
 
   let currMessages = messages;
   if (dateFilter) currMessages = dateFilter;

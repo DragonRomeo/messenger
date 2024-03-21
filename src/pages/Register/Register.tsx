@@ -54,7 +54,6 @@ export const Register = () => {
               email,
               photoURL: downloadURL,
             });
-            console.log('The data has been sent successfully');
 
             // Create empty user chats on Firestore
             await setDoc(doc(db, 'userChats', res.user.uid), {});

@@ -25,7 +25,6 @@ export const Navbar = () => {
               uid: user?.uid,
             })
           );
-          console.log(user);
         });
 
         return () => {

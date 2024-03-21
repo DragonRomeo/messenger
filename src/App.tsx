@@ -23,7 +23,6 @@ function App() {
           uid: user?.uid,
         })
       );
-      console.log('user', user);
     });
 
     return () => {

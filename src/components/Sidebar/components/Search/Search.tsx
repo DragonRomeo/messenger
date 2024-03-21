@@ -75,11 +75,10 @@ export const Search = () => {
             },
             [combinedId + '.date']: serverTimestamp(),
           });
-          console.log('authData', authData);
         }
       } catch (error: unknown) {
         const err = error as Error;
-        console.log(err.message);
+        alert(err.message);
       }
       setUser(null);
       setUserName('');

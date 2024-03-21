@@ -27,7 +27,6 @@ export const EditMessage: FC<Props> = ({
   const chatID = useSelector(selectors.chatID);
 
   const handleClick = () => {
-    console.log('handleClick');
     setIsInputOpen((prevState) => !prevState);
     closeDeleteMessages();
   };
