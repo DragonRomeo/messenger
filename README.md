@@ -1,30 +1,36 @@
-# React + TypeScript + Vite
+# Установка:
+1) npm install - для установки зависимостей
+2) скрипт 'dev' для запуска локального сервера
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Примечание: Если возникли трудности в понимании интерфейса, то можете обратиться к пошаговому руководству ниже.
 
-Currently, two official plugins are available:
+# Пошаговое руководство по основному функционалу.
+1) На начальном экране показывается окно Sign In, куда нужно вбить email и password, указанные при регистрации
+2) Если аккаунта еще нет, то кликнуть на 'register' в нижнем правом углу - вас перекинет на страницу 'register'
+3) Все 3 поля и добавление аватара являются обязательными для заполнения. После чего нажать кнопку sign up.
+4) Если регистрация прошла успешно, вы перейдете на основную страницу приложения.
+5) Далее: Если пользуйтесь браузером CHROME, нажмите комбинацию клавиш ctrl+shift+n для открытия в режиме инкогнито.
+6) Скопируйте ссылку на вал локалхост и вставьте в адрессную строку браузера в режиме инкогнито (пример: http://localhost:5173/)
+7) Повторите шаг с 1 по 4, создав нового User'a (новый аккаунт)
+8) Введите на любом из аккаунтов в поле 'find a user' ваш display name, указанный при регистрации и нажмите клавишу 'Enter' на клавиатуре. (Примечание: на данный момент поиск чувствителен к регистру)
+9) Под полем поиска появится пользователь, кликните по нему, чтоб добавить его в список. После этого пользователь у другого пользователя вы должны автоматически появится в списке контактов.
+10) Кликните по нужному пользователю, чтоб открыть с ним чат.
+11) Далее вы можете начать переписку с 2х акканутов. Для написания сообщения используйте нижнее поле 'write a message', а для его отправки клавишу 'Enter' или кнопку 'Send' рядом с полем.
+12) Редактирование и удаление сообщений. Для доступа к окну с этими функцоналом кликните на любое сообщение, отправленное вашим юзером. (Да-да, теперь нельзя редактировать чужие сообщения :) )
+13) Во всплывающем окне выберите 'edit message' для редактирования сообщения, 'delete message' для его удаления и крестик для закрытия всплывающего окна.
+14) Если вы выбрали опцию 'edit message', то нужно либо вписать в поле 'edit text here' ваше новое сообщение, либо нажать крестик, чтобы закрыть. (на данный момент, это поле скорее всего не включает в себя ваш изначальный текст)
+15) Фильтры. Они находятся в правом верхнем углу. Для открытия нужно кликнуть по этой иконке: ![image](https://github.com/DragonRomeo/messenger/assets/74453874/0c07d3dc-ac3d-4a55-922c-02f1fb564045)
+16) Откроется следующий интерфейс, где:
+1. Вернуться назад и стереть все установленные фильтры (если они поставлены)
+2. Открыть фильтр по дате. (примечание: в качестве календаря используется стандартный для вашего браузера, на разных браузерах их вид может различаться. Протестирован был лишь на Google Chrome)
+Далее выбрать 2 даты. Начальную и конечную. Фильтр не будет работать, если хоть одна дата не выбрана. Фильтр не будет работать, если конечная дата ниже начальной. Фильтр может работать, если 2 даты равны. 
+(примечание 2: для полного тестирования этой части, наверное, рекомендутся, чтобы сообщения были отправлены в разные дни)
+3. Выбор пользователя - выберите одного из 2х пользователя чата, чьи сообщения вы хотите только видеть. Вы можете переключить фильтр на другого пользователя без сброса всех стилей. 
+Стили фильтрации по дату и по юзеру СОВМЕСТИМЫ. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Для сброса всех стилей нажмите на 1. (стрелочка назад).
+ ![image](https://github.com/DragonRomeo/messenger/assets/74453874/f0a12e82-dc65-44e8-9fea-84e0d6f0e75d)
 
-## Expanding the ESLint configuration
+17) Для выхода из текущего аккаунта нажмите кнопку 'logout' в верхнем левом углу экрана рядом с вашим аватаром.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
