@@ -1,10 +1,10 @@
 # Стек:
-React
-JavaScript + TypeScript
-Redux + RTK
-React-router-dom
-Firebase - для БЭКА
-SASS
+1. React
+2. JavaScript + TypeScript
+3. Redux + RTK
+4. React-router-dom
+5. Firebase - для БЭКА
+6. SASS
 
 # Установка:
 1) npm install - для установки зависимостей
