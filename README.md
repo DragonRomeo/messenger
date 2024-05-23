@@ -1,3 +1,11 @@
+# Стек:
+React
+JavaScript + TypeScript
+Redux + RTK
+React-router-dom
+Firebase - для БЭКА
+SASS
+
 # Установка:
 1) npm install - для установки зависимостей
 2) скрипт 'dev' для запуска локального сервера
