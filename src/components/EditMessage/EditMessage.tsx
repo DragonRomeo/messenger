@@ -6,9 +6,9 @@ import {
   updateDoc,
 } from 'firebase/firestore';
 import { FC, useState } from 'react';
-import { db } from '../../../../../../../../../../firebase';
+import { db } from '../../firebase';
 import { useSelector } from 'react-redux';
-import { selectors } from '../../../../../../../../../../models/selectors/selectors';
+import { selectors } from '../../models/selectors/selectors';
 
 interface Props {
   style: CSSModuleClasses;

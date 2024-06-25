@@ -1,17 +1,11 @@
 import { useSelector } from 'react-redux';
-import { Message } from './components/Message/Message';
+import { Message } from '../Message/Message';
 import style from './Messages.module.scss';
 import { useEffect, useState } from 'react';
 import { DocumentData, doc, onSnapshot } from 'firebase/firestore';
-import { db } from '../../../../firebase';
-import { selectors } from '../../../../models/selectors/selectors';
-import { IRootState } from '../../../../store';
-
-// interface Props {
-//   startDate: string | null;
-//   endDate: string | null;
-//   userFilterName: string | null;
-// }
+import { db } from '../../firebase';
+import { selectors } from '../../models/selectors/selectors';
+import { IRootState } from '../../common/types/slice';
 
 export const Messages = () => {
   const [messages, setMessages] = useState<DocumentData | null>(null);

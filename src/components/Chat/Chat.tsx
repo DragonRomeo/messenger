@@ -1,9 +1,9 @@
-import { Input } from './components/Input/Input';
-import { Messages } from './components/Messages/Messages';
+import { Input } from '../Input/Input';
+import { Messages } from '../Messages/Messages';
 import style from './Chat.module.scss';
 import { useSelector } from 'react-redux';
-import { IRootState } from '../../store';
-import { Filters } from './components/Filters/Filters';
+import { IRootState } from '../../common/types/slice';
+import { Filters } from '../Filters/Filters';
 
 export const Chat = () => {
   const user = useSelector((state: IRootState) => state.chat.user);

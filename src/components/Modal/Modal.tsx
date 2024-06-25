@@ -1,7 +1,7 @@
 import { DocumentData } from 'firebase/firestore';
 import style from './Modal.module.scss';
-import { DeleteMessage } from './components/DeleteMessage/DeleteMessage';
-import { EditMessage } from './components/EditMessage/EditMessage';
+import { DeleteMessage } from '../DeleteMessage/DeleteMessage';
+import { EditMessage } from '../EditMessage/EditMessage';
 import { FC, useState } from 'react';
 
 interface Props {

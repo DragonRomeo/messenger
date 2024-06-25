@@ -1,9 +1,10 @@
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import style from './Navbar.module.scss';
-import { auth } from '../../../../firebase';
+import { auth } from '../../firebase';
 import { useDispatch, useSelector } from 'react-redux';
-import { IRootState } from '../../../../store';
-import { IAuth, addAuthData } from '../../../../store/authSlice';
+import { IRootState } from '../../common/types/slice';
+import { IAuth } from '../../common/types/slice';
+import { addAuthData } from '../../store/authSlice';
 import { useEffect, useState } from 'react';
 
 export const Navbar = () => {

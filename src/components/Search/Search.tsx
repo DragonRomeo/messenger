@@ -12,9 +12,9 @@ import {
   updateDoc,
   where,
 } from 'firebase/firestore';
-import { db } from '../../../../firebase';
+import { db } from '../../firebase';
 import { useSelector } from 'react-redux';
-import { IRootState } from '../../../../store';
+import { IRootState } from '../../common/types/slice';
 
 export const Search = () => {
   const [userName, setUserName] = useState('');

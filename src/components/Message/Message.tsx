@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
 import style from './Message.module.scss';
-import { IRootState } from '../../../../../../store';
+import { IRootState } from '../../common/types/slice';
 import { FC, useEffect, useRef, useState } from 'react';
 import { DocumentData } from 'firebase/firestore';
-import { Modal } from './components/Modal/Modal';
+import { Modal } from '../Modal/Modal';
 
 interface Props {
   message: DocumentData;
@@ -56,7 +56,9 @@ export const Message: FC<Props> = ({ message }) => {
       >
         <p>{message.text}</p>
       </div>
-      {isOpen && message.senderId === currentUser.uid && <Modal closeModal={closeModal} message={message} />}
+      {isOpen && message.senderId === currentUser.uid && (
+        <Modal closeModal={closeModal} message={message} />
+      )}
     </div>
   );
 };
