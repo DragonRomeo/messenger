@@ -1,10 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-export interface IAuth {
-  displayName: string;
-  photoURL: string;
-  uid: string;
-}
+import { IAuth } from '../common/types/slice';
 
 const authSlice = createSlice({
   name: 'auth',

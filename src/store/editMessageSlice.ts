@@ -1,9 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-interface IEdit {
-  isEdit: boolean;
-  editedText: string;
-}
+import { IEdit } from '../common/types/slice';
 
 const editMessageSlice = createSlice({
   name: 'edit',
@@ -16,7 +12,7 @@ const editMessageSlice = createSlice({
       state.isEdit = action.payload;
     },
     changeIsEdit(state) {
-        state.isEdit = !state.isEdit;
+      state.isEdit = !state.isEdit;
     },
     addEditedText(state, action) {
       state.editedText = action.payload;

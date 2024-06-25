@@ -1,10 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-interface iFilters {
-  startDate: string | null;
-  endDate: string | null;
-  userFilterName: string | null;
-}
+import { iFilters } from '../common/types/slice';
 
 const filtersSlice = createSlice({
   name: 'filters',
