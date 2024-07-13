@@ -2,10 +2,10 @@ import style from './Chats.module.scss';
 import style2 from '../Search/Search.module.scss';
 import { useEffect, useState } from 'react';
 import { DocumentData, doc, onSnapshot } from 'firebase/firestore';
-import { db } from '../../../../firebase';
+import { db } from '../../firebase';
 import { useDispatch, useSelector } from 'react-redux';
-import { IRootState } from '../../../../store';
-import { addChatData } from '../../../../store/chatsSlice';
+import { IRootState } from '../../common/types/slice';
+import { addChatData } from '../../store/chatsSlice';
 
 export const Chats = () => {
   const [chats, setChats] = useState<DocumentData | undefined>();

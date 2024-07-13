@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react';
 import style from './Filters.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { IRootState } from '../../../../store';
-import filter_icon from '../../../../assets/icons/icon_filter.png';
-import back_icon from '../../../../assets/icons/back_icon.png';
-import date_filter_icon from '../../../../assets/icons/date_icon.png';
-import user_filter_icon from '../../../../assets/icons/user_filter_icon.png';
-import { addFiltersData } from '../../../../store/filtersSlice';
+import { IRootState } from '../../common/types/slice';
+import filter_icon from '../../assets/icons/icon_filter.png';
+import back_icon from '../../assets/icons/back_icon.png';
+import date_filter_icon from '../../assets/icons/date_icon.png';
+import user_filter_icon from '../../assets/icons/user_filter_icon.png';
+import { addFiltersData } from '../../store/filtersSlice';
+
+//TODO: Make icons through the helper
 
 export const Filters = () => {
   const [isCloseFilter, setIsCloseFilter] = useState(false);
   const [isCloseDate, setIsCloseDate] = useState(false);
   const [isCloseUser, setIsCloseUser] = useState(false);
-  /* I should replace this 2 state (start & end) for 1 when I start refactoring?*/
   const [startDate, setStartData] = useState<string | null>(null);
   const [endDate, setEndData] = useState<string | null>(null);
   const [userFilterName, setUserFilterName] = useState<string | null>(null);

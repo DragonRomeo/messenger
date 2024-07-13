@@ -1,8 +1,8 @@
 import { DocumentData, arrayRemove, doc, updateDoc } from 'firebase/firestore';
 import { FC } from 'react';
 import { useSelector } from 'react-redux';
-import { selectors } from '../../../../../../../../../../models/selectors/selectors';
-import { db } from '../../../../../../../../../../firebase';
+import { selectors } from '../../models/selectors/selectors';
+import { db } from '../../firebase';
 
 interface Props {
   style: string;

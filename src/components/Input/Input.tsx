@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import style from './Input.module.scss';
-import { IRootState } from '../../../../store';
+import { IRootState } from '../../common/types/slice';
 import {
   Timestamp,
   arrayUnion,
@@ -8,10 +8,10 @@ import {
   serverTimestamp,
   updateDoc,
 } from 'firebase/firestore';
-import { db } from '../../../../firebase';
+import { db } from '../../firebase';
 import { v4 as uuid } from 'uuid';
 import { useState } from 'react';
-import { selectors } from '../../../../models/selectors/selectors';
+import { selectors } from '../../models/selectors/selectors';
 
 export const Input = () => {
   const [text, setText] = useState('');

@@ -1,6 +1,6 @@
-import { Chats } from './components/Chats/Chats';
-import { Navbar } from './components/Navbar/Navbar';
-import { Search } from './components/Search/Search';
+import { Chats } from '../Chats/Chats';
+import { Navbar } from '../Navbar/Navbar';
+import { Search } from '../Search/Search';
 import style from './Sidebar.module.scss';
 
 export const Sidebar = () => {

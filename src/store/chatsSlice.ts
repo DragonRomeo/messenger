@@ -1,12 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-interface IUser {
-  user: {
-    displayName?: string;
-    photoURL?: string;
-    uid?: string;
-  };
-}
+import { IUser } from '../common/types/slice';
 
 const chatSlice = createSlice({
   name: 'chat',
