@@ -1,4 +1,4 @@
-import { IRootState } from '../../store';
+import { IRootState } from '../../common/types/slice';
 
 export const chatID = (state: IRootState) => {
   if (!state?.chat?.user?.uid) {
@@ -12,4 +12,4 @@ export const chatID = (state: IRootState) => {
   return result;
 };
 
-export * as selectors from './selectors'
+export * as selectors from './selectors';

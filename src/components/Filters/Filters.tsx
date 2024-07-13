@@ -14,7 +14,6 @@ export const Filters = () => {
   const [isCloseFilter, setIsCloseFilter] = useState(false);
   const [isCloseDate, setIsCloseDate] = useState(false);
   const [isCloseUser, setIsCloseUser] = useState(false);
-  /* I should replace this 2 state (start & end) for 1 when I start refactoring?*/
   const [startDate, setStartData] = useState<string | null>(null);
   const [endDate, setEndData] = useState<string | null>(null);
   const [userFilterName, setUserFilterName] = useState<string | null>(null);
